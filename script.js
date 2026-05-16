@@ -39,7 +39,6 @@ if (contactForm) {
     event.preventDefault();
     const name = document.getElementById('nameInput')?.value.trim();
     const email = document.getElementById('emailInput')?.value.trim();
-    const goal = document.getElementById('goalInput')?.value.trim();
 
     if (!name || !email) {
       setMessage('Please provide your name and email.', 'error');
@@ -50,7 +49,7 @@ if (contactForm) {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, goal })
+        body: JSON.stringify({ name, email })
       });
 
       if (!response.ok) {
